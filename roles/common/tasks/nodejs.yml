@@ -1,0 +1,26 @@
+
+- name:  Disable NodeJS default version
+  ansible.builtin.shell: dnf module disable nodejs -y
+
+
+- name:  Enable NodeJS 20 module
+  ansible.builtin.shell: dnf module enable nodejs:20 -y
+
+
+- name:  Install NodeJS
+  ansible.builtin.dnf:
+    name: nodejs
+    state: latest
+
+
+- name: Setup App Pre-reqs.
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: app-prereq
+
+- name:  Download/Install NodeJS npm dependencies
+  ansible.builtin.shell: npm install
+
+
+SCHEMA_SETUP  #loads mongo schema
+SYSTEMD_SETUP
