@@ -1,5 +1,5 @@
 
-- name:  Add Application User
+- name:  Adding Application User
   ansible.builtin.user:
     name: roboshop
 
@@ -14,9 +14,13 @@
     state: directory
 
 
-- name:  Download and Extract Application content
+#- name:  Download and Extract Application content
+#  ansible.builtin.unarchive:
+#      src: https://roboshop-artifacts.s3.amazonaws.com/${component}-v3.zip
+#      dest: "{{ app_path }}"
+#      remote_src: yes
+- name: Download & Extract Application Content
   ansible.builtin.unarchive:
-      src: https://roboshop-artifacts.s3.amazonaws.com/${component}-v3.zip
-      dest: "{{ app_path }}"
-      remote_src: yes
-
+    src: https://roboshop-artifacts.s3.amazonaws.com/{{component}}-v3.zip
+    dest: "{{ app_path}}"
+    remote_src: yes
