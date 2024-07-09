@@ -22,5 +22,13 @@
   ansible.builtin.shell: npm install
 
 
-SCHEMA_SETUP  #loads mongo schema
-SYSTEMD_SETUP
+- name: Setup App schema
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: schema
+
+
+- name: Setup App SystemD.
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: systemd
