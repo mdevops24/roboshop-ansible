@@ -20,6 +20,8 @@
 
 - name:  Download/Install NodeJS npm dependencies
   ansible.builtin.shell: npm install
+  args:
+    chdir: "{{ app_path }}"
 
 
 - name: Setup App schema
