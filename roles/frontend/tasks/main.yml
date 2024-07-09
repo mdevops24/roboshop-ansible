@@ -9,7 +9,7 @@
     name: nginx
     state: latest
 
-- name: Copy nginx.conf file
+- name: Copy nginx config file
   ansible.builtin.copy:
   src:  nginx.conf
   dest: /etc/nginx/nginx.conf
