@@ -10,7 +10,7 @@
     state: latest
 
 - name: Copy nginx config file
-  ansible.builtin.copy:
+  ansible.builtin.template:   #changed from copy to template for env. definition as DEV
     src:  nginx.conf
     dest: /etc/nginx/nginx.conf
 
