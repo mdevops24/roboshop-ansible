@@ -14,10 +14,10 @@
 - name: Load schema
   ansible.builtin.include_role:
     name: common
-    tasks_force: schema
+    tasks_from: schema
   when: schema_setup is defined
 
- - name: SystemD setup
-   ansible.builtin.include_role:
-     name: common
-     tasks_force: systemd
+- name: SystemD setup
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: systemd
