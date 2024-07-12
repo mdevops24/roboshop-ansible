@@ -26,3 +26,5 @@
     - name: Load master data
       ansible.builtin.shell: mysql -h mysql.{{ env }}.mdevops24.online -uroot -pRoboShop@1 < /app/db/{{ item }}.sql
       loop: "{{schema_files}}"
+
+
